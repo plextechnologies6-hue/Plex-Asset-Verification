@@ -1,0 +1,7 @@
+{% extends "base.html" %}{% block content %}
+<div class="narrow panel"><h1>Import Client FAR</h1><p>Upload the client's Fixed Asset Register as CSV. The app will map common field names automatically.</p>
+<form method="post" enctype="multipart/form-data" class="upload"><input type="file" name="file" accept=".csv" required><button class="btn big">Import FAR</button></form>
+<h3>Expected fields</h3><p>Asset Name, Description, Tag Number, Location, Serial Number, Model, User, Custodian.</p>
+<div class="note">Tip: Export an Excel FAR as CSV before importing. The production version can support native XLSX with multiple sheets and configurable column mapping.</div>
+</div>
+{% endblock %}

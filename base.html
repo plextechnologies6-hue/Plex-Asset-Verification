@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Plex Asset Verification</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="logo">P</span><span><b>Plex Technologies</b><small>Asset Verification & FAR Reconciliation</small></span></div>
+  <nav>
+    <a href="{{ url_for('dashboard') }}">Dashboard</a>
+    <a href="{{ url_for('assets') }}">Field Register</a>
+    <a href="{{ url_for('new_asset') }}" class="btn">+ Capture Asset</a>
+    <a href="{{ url_for('import_far') }}">Import FAR</a>
+    <a href="{{ url_for('reconcile') }}">Reconcile</a>
+  </nav>
+</header>
+<main class="container">
+{% with messages=get_flashed_messages(with_categories=true) %}
+{% for cat,msg in messages %}<div class="flash {{cat}}">{{msg}}</div>{% endfor %}
+{% endwith %}
+{% block content %}{% endblock %}
+</main>
+<footer>Plex Technologies Limited • Field Asset Verification Platform</footer>
+</body>
+</html>

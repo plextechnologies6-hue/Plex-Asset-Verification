@@ -1,0 +1,14 @@
+{% extends "base.html" %}{% block content %}
+<section class="hero"><div><h1>Asset Verification Dashboard</h1><p>Capture physical asset data, verify records and reconcile against the Fixed Asset Register.</p></div><a class="btn big" href="{{url_for('new_asset')}}">Start Field Capture</a></section>
+<div class="cards">
+<div class="card"><span>Total Field Assets</span><strong>{{total}}</strong></div>
+<div class="card"><span>Verified</span><strong>{{verified}}</strong></div>
+<div class="card"><span>Not Found</span><strong>{{missing}}</strong></div>
+<div class="card"><span>Untagged</span><strong>{{untagged}}</strong></div>
+<div class="card"><span>FAR Records</span><strong>{{far_count}}</strong></div>
+</div>
+<div class="grid2">
+<div class="panel"><h2>Recommended Workflow</h2><ol><li>Import the client's FAR.</li><li>Capture/verify assets physically in each location.</li><li>Record tag, serial, model, user and custodian.</li><li>Mark condition and verification status.</li><li>Run reconciliation and investigate differences.</li><li>Export the final field register.</li></ol></div>
+<div class="panel"><h2>Field Capture Standard</h2><p><b>Minimum identification:</b> Asset Name + Tag Number or Serial Number.</p><p><b>Accountability:</b> Location + User + Custodian.</p><p><b>Audit evidence:</b> Condition + Remarks. Production version can add photographs, GPS and timestamps.</p></div>
+</div>
+{% endblock %}

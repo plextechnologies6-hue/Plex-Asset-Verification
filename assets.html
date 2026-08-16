@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% block content %}
+<div class="pagehead"><div><h1>Field Asset Register</h1><p>Physical verification records captured by the field team.</p></div><div><a class="btn" href="{{url_for('export')}}">Export CSV</a> <a class="btn big" href="{{url_for('new_asset')}}">+ Capture Asset</a></div></div>
+<form class="search"><input name="q" value="{{q}}" placeholder="Search asset, tag, serial, location or custodian..."><button>Search</button></form>
+<div class="tablewrap"><table><thead><tr><th>Asset</th><th>Tag</th><th>Serial / Model</th><th>Location</th><th>User</th><th>Custodian</th><th>Status</th><th>Condition</th><th></th></tr></thead>
+<tbody>{% for a in assets %}<tr>
+<td><b>{{a.asset_name}}</b><br><small>{{a.description}}</small></td><td>{{a.tag_number}}</td><td>{{a.serial_number}}<br>{{a.model}}</td><td>{{a.location}}</td><td>{{a.user_name}}</td><td>{{a.custodian}}</td><td><span class="pill">{{a.status}}</span></td><td>{{a.condition}}</td>
+<td><a href="{{url_for('edit_asset',asset_id=a.id)}}">Edit</a></td></tr>{% else %}<tr><td colspan="9" class="empty">No field assets captured yet.</td></tr>{% endfor %}</tbody></table></div>
+{% endblock %}
